@@ -1,0 +1,65 @@
+﻿@model MusicForAllAdmin.Models.Product
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Skapa ny kurs</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quantity" class="control-label"></label>
+                <input asp-for="Quantity" class="form-control" />
+                <span asp-validation-for="Quantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="Banner" class="control-label form-check-labe">Använda som banner</label>
+                <input class="form-check-input form-control" value="1" type="checkbox" id="Banner" />
+                <span asp-validation-for="Banner" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="Cta" class="control-label form-check-labe">Använda som CTA</label>
+                <input type="checkbox" id="Cta" value="1" class="form-check-input form-control" />
+                <span asp-validation-for="Cta" class="text-danger"></span>
+            </div>
+              <div class="form-group">
+                <label asp-for="ImageFile" class="control-label"></label>
+                <input asp-for="ImageFile" class="form-control" accept="image/*" />
+                <span asp-validation-for="ImageFile" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageAlt" class="control-label"></label>
+                <input asp-for="ImageAlt" class="form-control" />
+                <span asp-validation-for="ImageAlt" class="text-danger"></span>
+            </div>
+    
+        
+            <div class="form-group-m-4">
+                <input type="submit" value="Skapa" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Till produkter</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
